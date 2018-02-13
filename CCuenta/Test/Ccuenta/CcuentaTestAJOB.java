@@ -1,10 +1,14 @@
 /**
- * /**
+ * 
  * @author aortiz16
- * @version 1.1
- * {@code 15/02/18}
- 
+ *  
+ * {@code 15/02/18}  
+ *  
+ * @Version 2.0  - 15 / 2 / 18 -
+ *  
+ *   
  */
+ 
 
 package Ccuenta;
 
@@ -12,7 +16,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
- // import Ccuenta.Ccuenta;
+//  import Ccuenta.Ccuenta;   
 
  
 public class CcuentaTestAJOB {
@@ -26,12 +30,21 @@ public class CcuentaTestAJOB {
 		private double 	saldo;
 		private double 	cantidad;
 		
+		  Ccuenta miCuenta ;     // crear un objeto para todos los metodos
+
+		
+		  public Ccuenta(String n, String a, double s, double c) {
+			// TODO Apéndice de constructor generado automáticamente
+		}
+
+
 	//	@BeforeAll                        // copiado de la pizarra  DA ERROR, q Significa esta linea??
 	//	static void setupBeforeClass() throws Exception{
 			
 	//	}
 		
-		//public Ccuenta(String nombre, String apellido, int saldo, int cantidad) {
+		
+	/*	//public Ccuenta(String nombre, String apellido, int saldo, int cantidad) {
 		public Ccuenta(String n, String a, double s, double pts) {
 			// TODO Apéndice de constructor generado automáticamente  << CONSTRUCTOR DE LA CLASE  >>
 			nombre    = n;
@@ -41,23 +54,31 @@ public class CcuentaTestAJOB {
 		}
 	}
 
-	
+	*/
+		  
 		@Before
-		public void inicioPruebas() {
-		//	Ccuenta = new Ccuenta("Ana","López",3200,1);
-			Ccuenta miCuenta=new Ccuenta ("Ana", "Lopez", 3200, 2);
+		public void inicioPruebasAJOB()   throws Exception{
+	// 			COMO SERIA LA FORMA CORRECTA ??    ****
+	  		nombre = "Ana";
+	 		apellido = "Lopez";
+	 		saldo = 3200 ;
+	 		cantidad = 2;
+	 //		Ccuenta miCuenta=new Ccuenta (n, a, s, pts);
+	  	
+			miCuenta = new Ccuenta (nombre, apellido , saldo ,  cantidad);
+	 
 			assertNotNull(miCuenta);
 		}
 	
 	
-	@After
-	public void finPruebas() {
-		miCuenta  = null;  // eliminamos el objeto
-	}
-	
+		@After
+		public void finPruebasAJOB() {
+			miCuenta  = null;  // eliminamos el objeto
+		}
+		
 	
 	@Test
-	public void testGetSaldoCRM() {
+	public void testGetSaldoAJOB() {
 		//2.-prueba de que al crear una cuenta con un saldo 3200, al obtener el saldo, éste es correcto
  		assertEquals(3200, (int) miCuenta.getSaldo());//valor esperado y el devuelto
 	}
@@ -85,10 +106,10 @@ public class CcuentaTestAJOB {
 	
 	@Test(expected=Exception.class)
 													//6.-prueba de retirar más dienero de lo que se tiene
-	public void testRetirar1CRM() throws Exception{
+	public void testRetirar1AJOB() throws Exception{
 		miCuenta.retirar(3300);	
 	}
 
 }
-	
+}
  
